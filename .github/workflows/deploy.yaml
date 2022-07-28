@@ -24,10 +24,9 @@ jobs:
     - name: Configure AWS credentials from Test account
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: "arn:aws:iam::372287445072:role/s3read"
+        role-to-assume: {{ secrets.AWS_ROLE }}
         aws-region: us-east-1
 
     - name: Copy files to the test website with the AWS CLI
       run: |
         aws s3 sync ./staticwebsite s3://kaye-staticwebsite
-        
