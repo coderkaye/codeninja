@@ -22,7 +22,9 @@ jobs:
       # Add dependencies
       - name: Add dependencies
         run: |
-          apk --no-cache add aws-cli
+          sudo apt update
+          sudo apt install awscli -y
+          aws --version
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
